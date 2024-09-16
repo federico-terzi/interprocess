@@ -87,9 +87,9 @@ pub(crate) fn send_off(c: Corpse) {
 	let mut limbo = mutex.lock().expect(LOCK_POISON);
 	if let Err(c) = limbo.send(c) {
 		*limbo = create_limbo();
-		limbo
+		let _ = limbo
 			.send(c.0)
-			.ok()
+			.ok();
 			// .debug_expect("fresh Tokio limbo helper died immediately after being created");
 	}
 }
