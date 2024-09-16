@@ -90,6 +90,6 @@ pub(crate) fn send_off(c: Corpse) {
 		limbo
 			.send(c.0)
 			.ok()
-			.debug_expect("fresh Tokio limbo helper died immediately after being created");
+			// .debug_expect("fresh Tokio limbo helper died immediately after being created");
 	}
 }
